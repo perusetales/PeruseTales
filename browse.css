@@ -1,0 +1,122 @@
+/* === Apply full dark story theme to browse page === */
+
+body {
+  margin: 0;
+  font-family: 'Georgia', serif;
+  background-color: #000000;
+  color: #ffffff;
+}
+
+/* Style the header */
+header {
+  background-color: #000000;
+  padding: 20px;
+  border-bottom: 1px solid #000000;
+}
+
+header .logo {
+  font-size: 1.8rem;
+  color: #ffffff;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+nav ul li a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav ul li a:hover {
+  color: #ffffff;
+}
+
+/* Main section styling */
+main {
+  padding: 20px;
+}
+
+/* Browse hero section */
+.browse-hero {
+  text-align: center;
+  padding: 60px 20px;
+  background-color: #1a1a1a;
+  color: #f5f5f5;
+  border-bottom: 2px solid #333;
+}
+
+/* Story grid layout */
+.story-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  padding: 40px;
+  background-color: #0f0f0f;
+}
+
+/* Story card style */
+.story-card {
+  background: #181818;
+  border: 1px solid #000000;
+  border-radius: 10px;
+  padding: 25px;
+  color: #ddd;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.story-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 15px rgba(255, 0, 0, 0.1);
+}
+
+.story-card h3 {
+  margin-top: 0;
+  font-size: 1.4rem;
+  color: #fff;
+}
+
+.story-card p {
+  font-size: 0.95rem;
+  color: #ccc;
+}
+
+.story-card a {
+  display: inline-block;
+  margin-top: 10px;
+  color: #bbb;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+/* Footer */
+footer {
+  background-color: #111;
+  text-align: center;
+  padding: 20px;
+  color: #666;
+}
+.search-bar {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.search-bar input {
+  padding: 6px;
+  font-size: 14px;
+  border-radius: 4px;
+}
+
+.search-bar button {
+  padding: 6px 10px;
+  font-size: 14px;
+  cursor: pointer;
+}

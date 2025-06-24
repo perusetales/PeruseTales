@@ -1,0 +1,95 @@
+body {
+  background-color: #121212;
+  color: #eee;
+  font-family: 'Georgia', serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.8;
+}
+
+.story-header {
+  background-color: #000;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #333;
+}
+
+.story-header .logo {
+  font-family: 'Pacifico', cursive;
+  font-size: 1.8rem;
+  color: white;
+}
+
+.story-header nav a {
+  color: #aaa;
+  margin-left: 20px;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.3s;
+}
+
+.story-header nav a:hover {
+  color: white;
+}
+
+.story-container {
+  max-width: 800px;
+  margin: 60px auto;
+  padding: 0 20px;
+}
+
+.story-container h1 {
+  font-size: 2.4rem;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.author-line {
+  color: #aaa;
+  font-size: 0.9rem;
+  margin-bottom: 30px;
+}
+
+.story-body p {
+  font-size: 1.1rem;
+  color: #ddd;
+  margin-bottom: 20px;
+  text-align: justify;
+}
+
+.story-body .final-line {
+  font-style: italic;
+  border-left: 4px solid #444;
+  padding-left: 15px;
+  color: #bbb;
+}
+
+.story-actions {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.story-actions button {
+  background-color: #333;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.story-actions button:hover {
+  background-color: #555;
+}
+
+.story-footer {
+  background: #000;
+  color: #888;
+  text-align: center;
+  padding: 2rem;
+  margin-top: 3rem;
+}

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Browse Stories - PeruseTales</title>
+ <link rel="stylesheet" href="css/index.css" />
+  <link rel="stylesheet" href="css/browse.css" />
+  <script src="js/browse.js"></script>
+
+
+</head>
+<body>
+  <header>
+    <div class="logo"><strong><em>PeruseTales</em></strong></div>
+    <nav>
+      <ul>
+        
+
+        <li><a href="index.html">Home</a></li>
+         <li><a href="browse.html" class="active">Browse</a></li>
+        <li><a href="genres.html">Genres</a></li>
+        <li><a href="#">Authors</a></li>
+        <li><a href="profile.html">Profile</a></li>
+
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="browse-hero">
+      <h2>Browse All Stories</h2>
+      <p>Explore our handpicked tales of wonder, mystery, and time.</p>
+    </section>
+
+    <section class="story-grid">
+      <div class="story-card">
+        <h3>The Clockmaker’s Secret</h3>
+        <p>COMING SOON.</p>
+        <a href="#">Read More</a>
+      </div>
+      <div class="story-card">
+        <h3>Echoes of a Dream</h3>
+        <p>COMING SOON</p>
+        <a href="#">Read More</a>
+      </div>
+      <div class="story-card">
+        <h3>weakness of powerfulness</h3>
+        <p>COMING SOON</p>
+         <a href="stories/weakness-of-powerfulness.html" class="read-btn">Read Full Story</a>
+      </div>
+      <div class="story-card">
+        <h3>The Lost Letters</h3>
+        <p>COMING SOON.</p>
+        <a href="#">Read More</a>
+      </div>
+    </section>
+  </main>
+  <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const params = new URLSearchParams(window.location.search);
+    const searchQuery = params.get("search");
+    
+    if (searchQuery) {
+      // Perform story filtering or search logic here
+      console.log("User searched for:", searchQuery);
+      // For example, highlight results or show message
+      document.body.insertAdjacentHTML("afterbegin", `<p style="padding: 10px; background: #eee;">Search results for: <strong>${searchQuery}</strong></p>`);
+    }
+  });
+</script>
+  <footer>
+    <p>© 2025 PeruseTales. All rights reserved.</p>
+  </footer>
+  <script src="js/search.js"></script>
+  <script src="js/browse.js"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Genres - PeruseTales</title>
+  <link rel="stylesheet" href="css/index.css" />
+  <link rel="stylesheet" href="css/genres.css" />
+  <link rel="stylesheet" href="css/global.css" />
+  <style>
+    .story-section {
+      display: none;
+    }
+
+    .story-section.active {
+      display: block;
+    }
+
+    .story-section {
+      margin-top: 30px;
+    }
+
+    .story-card {
+      background-color: #000000;
+      border: 1px solid #ccc;
+      padding: 15px;
+      margin-bottom: 10px;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo"><strong><em>PeruseTales</em></strong></div>
+    <nav>
+      <ul>
+        
+        <li><a href="index.html">Home</a></li>
+        <li><a href="browse.html">Browse</a></li>
+        <li><a href="genres.html" class="active">Genres</a></li>
+        <li><a href="authors.html">Authors</a></li>
+      <li><a href="profile.html">Profile</a></li>
+
+
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="genre-section">
+      <h1>Select a Genre</h1>
+      <div class="genre-grid">
+        <a href="#" class="genre-card" data-genre="sci-fi">Science Fiction</a>
+        <a href="#" class="genre-card" data-genre="romance">Romance</a>
+        <a href="#" class="genre-card" data-genre="fantasy">Fantasy</a>
+        <a href="#" class="genre-card" data-genre="mystery">Mystery</a>
+        <a href="#" class="genre-card" data-genre="historical">Historical</a>
+        <a href="#" class="genre-card" data-genre="horror">Horror</a>
+      </div>
+    </section>
+
+    <section id="sci-fi" class="story-section">
+      <h2>Science Fiction</h2>
+      <div class="story-card">
+        <h3>Time Raiders</h3>
+        <p>COMING SOON</p>
+        <a href="#">Read More</a>
+      </div>
+    </section>
+
+    <section id="romance" class="story-section">
+      <h2>Romance</h2>
+      <div class="story-card">
+        <h3>Letters to the Moon</h3>
+        <p>COMING SOON</p>
+        <a href="#">Read More</a>
+      </div>
+    </section>
+
+    <section id="fantasy" class="story-section">
+      <h2>Fantasy</h2>
+      <div class="story-card">
+        <h3>The Emerald Realm</h3>
+        <p>COMING SOON</p>
+        <a href="#">Read More</a>
+      </div>
+    </section>
+
+    <section id="mystery" class="story-section">
+      <h2>Mystery</h2>
+      <div class="story-card">
+        <h3>The Last Clue</h3>
+        <p>COMING SOON</p>
+        <a href="#">Read More</a>
+      </div>
+    </section>
+
+    <section id="historical" class="story-section">
+      <h2>Historical</h2>
+      <div class="story-card">
+        <h3>The Empress' Journal</h3>
+        <p>COMING SOON</p>
+        <a href="#">Read More</a>
+      </div>
+    </section>
+
+    <section id="horror" class="story-section">
+      <h2>Horror</h2>
+      <div class="story-card">
+        <h3>Whispers in the Attic</h3>
+        <p>COMING SOON.</p>
+        <a href="#">Read More</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 PeruseTales. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const genreCards = document.querySelectorAll(".genre-card");
+    const storySections = document.querySelectorAll(".story-section");
+
+    genreCards.forEach((card) => {
+      card.addEventListener("click", (e) => {
+        e.preventDefault(); // prevent scrolling
+        const genre = card.dataset.genre;
+
+        storySections.forEach((section) => {
+          if (section.id === genre) {
+            section.classList.add("active");
+          } else {
+            section.classList.remove("active");
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>

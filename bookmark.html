@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Your Bookmarked Stories | PeruseTales</title>
+  <link rel="stylesheet" href="css/index.css" />
+</head>
+<body>
+  <header class="main-header">
+    <div class="logo"><strong><em>PeruseTales</em></strong></div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="browse.html">Browse</a></li>
+        <li><a href="genres.html">Genres</a></li>
+        <li><a href="authors.html">Authors</a></li>
+        <li><a href="profile.html">Profile</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main style="max-width: 800px; margin: 40px auto; padding: 0 20px;">
+    <h2 style="color: white;">📚 Your Bookmarked Stories</h2>
+    <ul id="bookmarkList" style="margin-top: 20px; padding-left: 0; list-style: none;"></ul>
+  </main>
+
+  <footer>
+    <p>© 2025 PeruseTales. All rights reserved.</p>
+  </footer>
+
+  <script type="module">
+    import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+    import { getFirestore, collection, query, where, getDocs } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+    import { app } from "./js/firebase.js";
+
+    const auth = getAuth(app);
+    const db = getFirestore(app);
+    const list = document.getElementById("bookmarkList");
+
+    onAuthStateChanged(auth, async (user) => {
+      if (!user) {
+        list.innerHTML = "<li style='color: gray;'>Please log in to view bookmarks.</li>";
+        return;
+      }
+
+      const q = query(collection(db, "bookmarks"), where("uid", "==", user.uid));
+      const snap = await getDocs(q);
+
+      if (snap.empty) {
+        list.innerHTML = "<li style='color: gray;'>You haven't bookmarked any stories yet.</li>";
+      } else {
+        snap.forEach(doc => {
+          const data = doc.data();
+          const li = document.createElement("li");
+          li.innerHTML = `<a href="${data.storyPath}" style="color: #88f; text-decoration: underline;">${data.storyTitle}</a>`;
+          list.appendChild(li);
+        });
+      }
+    });
+  </script>
+</body>
+</html>

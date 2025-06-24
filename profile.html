@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Your Profile - PeruseTales</title>
+  <link rel="stylesheet" href="css/profile.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <header class="main-header">
+    <div class="logo"><strong><em>PeruseTales</em></strong></div>
+</header>
+
+
+  <main class="profile-container">
+    <div class="card">
+      <img id="profile-pic" src="images/default-profile.png" alt="Profile Picture" />
+      
+     <!-- Username Form -->
+<div class="username-section">
+  <label for="usernameInput"><strong>Enter Username:</strong></label>
+  <input type="text" id="usernameInput" placeholder="Choose a username" />
+  <button id="saveUsernameBtn">Save</button>
+  <p id="usernameStatus" style="color: red;"></p>
+</div>
+
+      <p id="user-email">guest@example.com</p>
+
+      <div class="profile-links">
+        <a href="history.html">📖 Reading History</a>
+        <a href="saved.html">💾 Saved Stories</a>
+        <a href="bookmark.html">🔖 Bookmarks</a>
+        <a href="time.html">⏱️ Time Spent</a>
+        
+        <a href="login.html" id="switch-account">🔄 Switch Account</a>
+        <button id="logout">🚪 Logout</button>
+
+      </div>
+    </div>
+  </main>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+    import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyCykSLAUfwzPBkoEjQ7Bj1V0EUMJitUuCQ",
+      authDomain: "perusetales.firebaseapp.com",
+      projectId: "perusetales",
+      appId: "1:115243497675:web:852abf938435b03fedc34e",
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    const nameEl = document.getElementById("user-name");
+    const emailEl = document.getElementById("user-email");
+    const picEl = document.getElementById("profile-pic");
+    const logoutBtn = document.getElementById("logout");
+
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        nameEl.textContent = user.displayName || "Peruse Reader";
+        emailEl.textContent = user.email;
+        picEl.src = user.photoURL || "images/default-profile.png";
+      } else {
+        window.location.href = "login.html";
+      }
+    });
+
+    logoutBtn.addEventListener("click", () => {
+      signOut(auth).then(() => {
+        window.location.href = "index.html";
+      });
+    });
+  </script>
+
+</body>
+</html>

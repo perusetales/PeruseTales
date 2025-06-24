@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PeruseTales</title>
+  <link rel="stylesheet" href="css/index.css" />
+  <link rel="stylesheet" href="css/index.css" />
+  
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <!-- Main Header -->
+  <header class="main-header">
+    <div class="logo"><strong><em>PeruseTales</em></strong></div>
+    <nav>
+      <ul>
+        
+
+                <li><a href="genres.html" class="active">home</a></li>
+       <li><a href="browse.html">Browse</a></li>
+
+        <li><a href="genres.html">Genres</a></li>
+
+        <li><a href="authors.html">Authors</a></li>
+        <li><a href="profile.html">Profile</a></li>
+
+
+
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section class="featured-story">
+  <div class="story-card">
+    <h3>The Weakness of Powerfulness</h3>
+    <p>Power reveals itself... but its greatest strength lies in its cracks. A tale of pride, downfall, and redemption.</p>
+    <a href="stories/weakness-of-powerfulness.html" class="read-btn">Read Full Story</a>
+  </div>
+</section>
+
+  </main>
+  
+
+  <!-- Hero Section -->
+  <section class="hero">
+    
+    <div class="hero-text">
+      <h1>Stories That Whisper Through Time</h1>
+      <p>Dive into timeless tales, lost letters, and hidden worlds.</p>
+      <button id="startReadingBtn">Start Reading</button><!-- ✅ Working button -->
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 PeruseTales. All rights reserved.</p>
+  </footer>
+
+  <script src="js/index.js"></script>
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+  import {
+    getAuth,
+    onAuthStateChanged
+  } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+
+  const firebaseConfig = {
+  apiKey: "AIzaSyCykSLAUfwzPBkoEjQ7Bj1V0EUMJitUuCQ",
+  authDomain: "perusetales.firebaseapp.com",
+  projectId: "perusetales",
+    appId: "1:115243497675:web:852abf938435b03fedc34e",
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+
+  const startReadingBtn = document.getElementById("startReadingBtn");
+
+  // Wait for Firebase to tell us if the user is logged in
+  onAuthStateChanged(auth, (user) => {
+    startReadingBtn.addEventListener("click", () => {
+      if (user) {
+        console.log("User is logged in:", user.email);
+        window.location.href = "browse.html";
+      } else {
+        console.log("No user logged in");
+        window.location.href = "signup.html";
+      }
+    });
+  });
+</script>
+<script src="js/search.js"></script>
+
+
+</body>
+</html>
